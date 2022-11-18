@@ -1,16 +1,16 @@
 {
   "profiles": {
     "ConfigCrypter.Console": {
-      //"commandLineArgs": "create --path certificate.pfx --password MySup3r2ecret! --name TeamSystemEnterpriceHub",
-      //"commandLineArgs": "init --path certificate.pfx --password MySup3r2ecret! --name TeamSystemEnterpriceHub --file appsettings.Development.json",
+      //"commandLineArgs": "create --path certificate.pfx --password MySup3r2ecret! --name EnterpriceCompany",
+      //"commandLineArgs": "init --path certificate.pfx --password MySup3r2ecret! --name EnterpriceCompany --file appsettings.Development.json",
       //"commandLineArgs": "encrypt -f appsettings.Development.json -p certificate.pfx --password MySup3r2ecret!",
 
 
-      //"commandLineArgs":"encrypt -f appsettings.json -p test-certificate-psw.pfx --password TeamSystem! -k Test.ToBeEncryptedByCommandLine",
+      //"commandLineArgs":"encrypt -f appsettings.json -p test-certificate-psw.pfx --password MyCompany! -k Test.ToBeEncryptedByCommandLine",
       //"commandLineArgs": "init -p TEST_name_cert.pfx --password 123456 -f appsettings_decrypted.json -k Test.ToBeEncrypted -n TEST_name",
       //"commandLineArgs": "init -p TEST_name_cert.pfx --password 123456 -f appsettings.Development.json -k TSIDAuthentication.TSIDLoginParameters.IspAesPassword -n TEST_name",
 
-      //"commandLineArgs": "init -p TEST_Cert.pfx --password TeamsystemSecret! -f appsettings.Development.json -k TSIDAuthentication.TSIDLoginParameters.IspAesPassword,TSIDAuthentication.TSIDLoginParameters.IspAesIv,TSIDAuthentication.TSIDLoginParameters.ApiAesKey,TSIDAuthentication.TSIDLoginParameters.ApiAesIv -n TEST_Cert -r true",
+      //"commandLineArgs": "init -p TEST_Cert.pfx --password MyCompanySecret! -f appsettings.Development.json -k TSIDAuthentication.TSIDLoginParameters.IspAesPassword,TSIDAuthentication.TSIDLoginParameters.IspAesIv,TSIDAuthentication.TSIDLoginParameters.ApiAesKey,TSIDAuthentication.TSIDLoginParameters.ApiAesIv -n TEST_Cert -r true",
       //"commandLineArgs": "encrypt -p TEST_name_cert.pfx --password 123456 -f appsettings.Development.json -k TSIDAuthentication.TSIDLoginParameters.IspAesPassword -n TEST_name",
 
 
@@ -22,7 +22,7 @@
 
       //"commandLineArgs": "certInfo -p Certificates\\test-certificate-psw.pfx --password MySecret! -v",
       
-      //"commandLineArgs": "init -p TEST_Cert.pfx --password TeamsystemSecret! -f appsettings.Production.json",
+      //"commandLineArgs": "init -p TEST_Cert.pfx --password MyCompanySecret! -f appsettings.Production.json",
 
       "commandName": "Project"
     }
