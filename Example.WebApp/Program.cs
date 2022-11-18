@@ -1,7 +1,6 @@
-using System.Collections.Generic;
+using DevAttic.ConfigCrypter.CertificateLoaders;
 using DevAttic.ConfigCrypter.Extensions;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace Example.WebApp
@@ -19,13 +18,27 @@ namespace Example.WebApp
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-                .ConfigureAppConfiguration((hostingContext, cfg) =>
+                .ConfigureAppConfiguration(cfg =>
                 {
-                    cfg.AddEncryptedAppSettings(hostingContext.HostingEnvironment, crypter =>
+                    //Standard config File
+                    //cfg.AddJsonFile("appsettings.json", false, true);
+                    //Replace with                    
+                    cfg.AddEncryptedJsonFile(crypter =>
                     {
+                        crypter.Path = "appsettings.json";
+                        crypter.Optional = false;
                         crypter.ReloadOnChange = true;
-                        crypter.CertificatePath = "cert.pfx";
-                        crypter.KeysToDecrypt = new List<string> { "Nested:KeyToEncrypt" };
+
+                        crypter.CertificateLoader = new EmbeddedResourcesCertificateLoader(System.Reflection.Assembly.GetExecutingAssembly(), "Example.WebApp.test-certificate.pfx");
+
+                        //or loaded from path:                       
+                        //string certificatePath = Environment.GetEnvironmentVariable("CertificatePath");
+                        //if (string.IsNullOrWhiteSpace(certificatePath))
+                        //    crypter.CrypterFactory = cfg => new DummyCrypter();
+                        //else
+                        //    crypter.FileSystemCertificateLoader(certificatePath);
+
+
                     });
                 });
     }

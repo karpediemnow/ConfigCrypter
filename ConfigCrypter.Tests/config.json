@@ -1,3 +1,7 @@
 {
-  "KeyToEncrypt": "fvQIaoOW4jVGzNUs7QilDFSBWtjACTdxNTA/d8xF6MIwuKVjhkBKBAGL+FIXk+vA9YRqfLid/OvucaH3Bhs/9ur+9/dKGuCklFRYCWEo9sQoihBHDYZ/67YSCOVzZp2zvtJI3ZjRwefjHpOqSOjcAmgZQYF519tbLzLQOUK0DOEzC6hP+1pMt6qgVYBi1F0/gjUaqXSsiwmkZFmu1rgA9LfRY6RRi+Cy4OVfcXON4tYwiyAyYQ59bT2eggv5DqlrKGLYAZOHpmaCasjxMbyYuFrIg/uehErVtSMMVSq5qdaysxo7wFNuqbCrC/jPNkCMKE+c1+9JgVM52bmU01eg9A=="
+  "KeyToDecrypt": "[ENCRYPTED]QUslDOjFQn1bulnrql1bBxmuYia49TWVFNCrNFDTak6qUUQK8Iy2qb6aht5bj9O6nLlUzkkCUC+3mTAUCK6SjyiHtvHkfqzGbcjIlbDg4pCYMBcKsLj30Aj5Jltj1UgsVaERS/rc1wCr9SjHsIMDCC7Dnxcxh5zYkm2qCuMTgTJKv+BCF/0Dg2KKRB92IEOUeCzg1dGUtgzrbbO851BUzJJ1kYebftvusTFkYRyAgc3XAoVLyK7iCL/6r9jPZeLfozA6rRDLRUA2j7kvjMuFfFVf5FJO8d1RJURfOLobCMBnxJNPTGYRDmIhoCWPt8FAiFDHs12hRvDIxYrGTSPxHQ==",
+  "ToBeEncrypted": "[TOENCRYPT]This will be encrypted.",
+  "ToBeEncryptedByCommandLine": "This will be encrypted.",
+  "ToBeEncryptedByCommandLine2": "This will be encrypted.",
+  "TextPlain": "This will be encrypted."
 }

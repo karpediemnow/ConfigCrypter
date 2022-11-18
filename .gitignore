@@ -234,7 +234,7 @@ ClientBin/
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
-*.pfx
+#*.pfx
 *.publishsettings
 orleans.codegen.cs
 
@@ -357,7 +357,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-!ConfigCrypter.Tests/test-certificate.pfx
 
 ### VisualStudio ###
 
@@ -518,5 +517,3 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,csharp
-
-!cert.pfx

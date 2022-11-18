@@ -1,0 +1,7 @@
+{
+  "KeyToDecrypt": "This will be encrypted.",
+  "ToBeEncrypted": "[TOENCRYPT]This will be encrypted.",
+  "ToBeEncryptedByCommandLine": "This will be encrypted.",
+  "ToBeEncryptedByCommandLine2": "This will be encrypted.",
+  "TextPlain": "This will be encrypted."
+}

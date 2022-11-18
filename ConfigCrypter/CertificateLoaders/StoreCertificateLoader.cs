@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
 namespace DevAttic.ConfigCrypter.CertificateLoaders
@@ -10,10 +11,29 @@ namespace DevAttic.ConfigCrypter.CertificateLoaders
     {
         private readonly string _subjectName;
 
-        public StoreCertificateLoader(string subjectName)
+        /// <summary>
+        /// Load certificate from My Store, Store Location: LocalMachine
+        /// </summary>
+        /// <param name="subjectName"></param>
+        public StoreCertificateLoader(string subjectName) : this(subjectName, StoreName.My, StoreLocation.LocalMachine)
         {
-            _subjectName = subjectName;
         }
+
+        public StoreCertificateLoader(string subjectName, StoreName storeName, StoreLocation storeLocation)
+        {
+            if (string.IsNullOrWhiteSpace(subjectName))
+            {
+                throw new InvalidOperationException("Invalid CertificateSubjectName.");
+            }
+
+
+            _subjectName = subjectName;
+            StoreName = storeName;
+            StoreLocation = storeLocation;
+        }
+
+        public StoreName StoreName { get; }
+        public StoreLocation StoreLocation { get; }
 
         /// <summary>
         /// Loads a certificate by subject name from the store.
@@ -22,7 +42,7 @@ namespace DevAttic.ConfigCrypter.CertificateLoaders
         /// <remarks>The loader looks for the certificate in the own certificates of the local machine store. It uses the FindBySubjectName find type.</remarks>
         public X509Certificate2 LoadCertificate()
         {
-            using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
+            using (var store = new X509Store(StoreName, StoreLocation))
             {
                 store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
 

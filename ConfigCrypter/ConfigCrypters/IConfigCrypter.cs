@@ -24,5 +24,19 @@ namespace DevAttic.ConfigCrypter.ConfigCrypters
         /// <returns>The content of the config file where the key has been encrypted.</returns>
         /// <remarks>It up to the implementer how to interpret the format of the config key.</remarks>
         string EncryptKey(string configFileContent, string configKey);
+
+        /// <summary>
+        /// Discovery the keys start with [ENCRYPTED]
+        /// </summary>
+        /// <param name="configContent"></param>
+        /// <returns></returns>
+        string DiscoveryDecryptKeys(string configContent);
+
+        /// <summary>
+        /// Discovery the keys start with [TOENCRYPT]
+        /// </summary>
+        /// <param name="configContent"></param>
+        /// <returns></returns>
+        string DiscoveryEncryptKeys(string configContent);
     }
 }

@@ -1,19 +1,26 @@
-﻿using Microsoft.Extensions.Configuration.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Resources;
+using System.Linq;
 using System.Text.Json;
+using DevAttic.ConfigCrypter.ConfigProviders.Json.Parser;
+using DevAttic.ConfigCrypter.Crypters;
+using DevAttic.ConfigCrypter.Exceptions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace DevAttic.ConfigCrypter.ConfigProviders.Json
 {
     /// <summary>
     ///  JSON configuration provider that uses the underlying crypter to decrypt the given keys.
     /// </summary>
-    public partial class EncryptedJsonConfigProvider : JsonConfigurationProvider
+    public class EncryptedJsonConfigProvider : JsonConfigurationProvider
     {
+
         private readonly EncryptedJsonConfigSource _jsonConfigSource;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="EncryptedJsonConfigProvider"/> class.
         /// Creates an instance of the EncryptedJsonConfigProvider.
         /// </summary>
         /// <param name="source">EncryptedJsonConfigSource that is used to configure the provider.</param>
@@ -22,17 +29,12 @@ namespace DevAttic.ConfigCrypter.ConfigProviders.Json
             _jsonConfigSource = source;
         }
 
-        /// <summary>
-        /// Loads the JSON configuration from stream and decrypts all configured keys with the given crypter.
-        /// </summary>
         public override void Load(Stream stream)
-        {
+        {   
             try
             {
-                using (var crypter = _jsonConfigSource.CrypterFactory(_jsonConfigSource))
-                {
-                    Data = EncryptedJsonConfigurationFileParser.Parse(stream, crypter, _jsonConfigSource.KeysToDecrypt);
-                }
+                using var crypter = _jsonConfigSource.CrypterFactory(_jsonConfigSource);
+                Data = EncryptedJsonConfigurationFileParser.Parse(stream, crypter);
             }
             catch (JsonException e)
             {
@@ -40,8 +42,9 @@ namespace DevAttic.ConfigCrypter.ConfigProviders.Json
             }
             catch (Exception ex)
             {
-                throw new Exception("Unable to decrypt keys", ex);
-            }
+                throw new DecryptKeyException("Unable to decrypt key, check if are using the correct decrypter keys", ex);
+            }            
         }
     }
+
 }

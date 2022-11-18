@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace DevAttic.ConfigCrypter.CertificateLoaders
 {
@@ -13,5 +14,11 @@ namespace DevAttic.ConfigCrypter.CertificateLoaders
         /// </summary>
         /// <returns>A X509Certificate2 instance.</returns>
         X509Certificate2 LoadCertificate();
+    }
+
+
+    public interface ICertificateLoaderAsync
+    {
+        Task<X509Certificate2> LoadCertificateAsync();
     }
 }
